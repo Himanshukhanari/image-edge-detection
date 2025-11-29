@@ -1,12 +1,27 @@
-# image-edge-detection
- perform edge detection using different operators and compare the results.
+This project demonstrates edge detection on any input image using four widely used operators:
+
+Sobel
+
+Prewitt
+
+Laplacian
+
+Canny
+
+The results are displayed side-by-side for easy comparison using OpenCV, NumPy, SciPy, and Matplotlib.
+│── edge_detection.py
+│── image.jpg
+│── README.md
+Edge detection is a fundamental task in image processing used to detect discontinuities or sharp changes in pixel intensity.
+This project helps visualize how different operators detect edges uniquely.
+code used
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import ndimage
 
 # ----------- Load Image -----------
-img = cv2.imread("image.jpg")      # <-- change to your image name
+img = cv2.imread("image.jpg")      # <-- replace with your image
 img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # ----------- Sobel Operator -----------
@@ -38,3 +53,32 @@ for i in range(5):
 
 plt.tight_layout()
 plt.show()
+Operators Explained
+1. Sobel Operator
+
+Detects edges using intensity gradients in x and y directions.
+Best for detecting strong edges while reducing noise.
+
+2. Prewitt Operator
+
+Similar to Sobel but uses simpler kernels.
+Good for educational purposes and basic edge detection.
+
+3. Laplacian Operator
+
+Second-order derivative operator that detects rapid intensity changes.
+Useful for highlighting fine edges.
+
+4. Canny Edge Detector
+
+A multi-stage, advanced edge detector using:
+
+Gaussian smoothing
+
+Gradient computation
+
+Non-max suppression
+
+Hysteresis thresholding
+
+Produces the cleanest and sharpest edges.
